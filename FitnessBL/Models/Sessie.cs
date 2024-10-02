@@ -67,8 +67,15 @@ namespace FitnessBL.Models
             }
         }
 
+        public List<Interval> LoopIntervallen = new List<Interval>();
 
-
-
+        public Sessie(int sessieNr, DateTime datum, int klantNr, int totaleTrainingsduur, double gemSnelheid)
+        {
+            this.SessieNr = sessieNr;
+            this.Datum = datum;
+            this.KlantNr = klantNr;
+            this.TotaleTrainingsduur= totaleTrainingsduur;
+            this.GemSnelheid = gemSnelheid;
+        }
     }
 }
