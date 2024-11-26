@@ -38,7 +38,7 @@ namespace FitnessBL
                             DateTime datum = DateTime.ParseExact(lijnInStukjes[1], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
                             int klantNr = int.Parse(lijnInStukjes[2]);
                             int totaleTrainingsduur = int.Parse(lijnInStukjes[3]);
-                            double gemSnelheid = double.Parse(lijnInStukjes[4], System.Globalization.CultureInfo.InvariantCulture);
+                            double gemSnelheid = double.Parse(lijnInStukjes[4].Replace('.', ','));
 
                             Sessie nieuweSessie = new Sessie(sessieNr, datum, klantNr, totaleTrainingsduur, gemSnelheid);
                             nieuweSessie.LoopIntervallen = new List<Interval>(); // Initialize the list of intervals
@@ -51,7 +51,7 @@ namespace FitnessBL
                         // Read the interval details only
                         int Snr = int.Parse(lijnInStukjes[5]);
                         int intervalTijd = int.Parse(lijnInStukjes[6]);
-                        double intervalSnelheid = double.Parse(lijnInStukjes[7], System.Globalization.CultureInfo.InvariantCulture);
+                        double intervalSnelheid = double.Parse(lijnInStukjes[7].Replace(".", ","));
                         Interval huidigeInterval = new Interval(Snr, intervalTijd, intervalSnelheid);
 
                         // Add the interval to the existing LoopSessie
